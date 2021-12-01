@@ -1,0 +1,100 @@
+.ct-service-external1 {
+    .item--image img {
+        width: 100%;
+    }
+    .item--icon {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        text-align: center;
+        min-width: 55px;
+        background-color: $primary_color;
+        margin-right: 22px;
+        i {
+            font-size: 36px;
+            color: #fff
+        }
+        img {
+            max-height: 55px;
+        }
+    }
+    .item--title {
+        margin-bottom: 0;
+        font-size: 24px;
+        color: #fff;
+    }
+    .item--description {
+        color: #fff;
+        margin-bottom: 21px;
+    }
+    .item--meta {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-bottom: 17px;
+    }
+    .item--overlay {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#000, 0.8);
+        background-position: top center;
+    }
+    .item--holder, .item--holder-hover {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 23px 28px;
+        z-index: 99;
+    }
+    .item--readmore .btn {
+        font-family: 'Barlow', sans-serif;
+        line-height: 45px;
+        border-radius: 0px;
+        padding: 0 25px;
+        font-size: 15px;
+        background: $primary_color;
+        @include box-shadow(none);
+        &:hover, &:focus {
+            background: $primary_color;
+        }
+    }
+    .item--holder {
+        @include transition(.3s cubic-bezier(.24,.74,.58,1));
+        transform-origin: bottom center;
+        -webkit-transform-origin: bottom center;
+    }
+    .item--holder-hover {
+        padding-bottom: 40px;
+        top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        width: 100%;
+        @include transform(scaleY(0));
+        opacity: 0;
+        transform-origin: bottom center;
+        -webkit-transform-origin: bottom center;
+        @include transition(.3s cubic-bezier(.24,.74,.58,1));
+    }
+    .item--inner {
+        position: relative;
+        &:hover {
+            .item--holder {
+                opacity: 0;
+                @include transform(scaleY(0));
+            }
+            .item--holder-hover {
+                @include transform(scaleY(1));
+                opacity: 1;
+                -webkit-transition-delay: 0.12s;
+                -moz-transition-delay: 0.12s;
+                transition-delay: 0.12s;
+            }
+        }
+    }
+}

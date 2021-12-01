@@ -1,0 +1,116 @@
+.ct-nav-menu1 {
+	.ct-main-menu {
+		> li {
+			&:hover > a,
+            &.current_page_item > a:not(.is-one-page),
+            &.current-menu-item > a:not(.is-one-page),
+            &.current_page_ancestor > a:not(.is-one-page),
+            &.current-menu-ancestor > a:not(.is-one-page),
+            a.is-one-page.ct-onepage-active {
+            	color: $primary_color;
+            }
+            .link-icon {
+            	color: inherit;
+            }
+		}
+		.sub-menu {
+			@include border-radius(5px);
+		}
+	}
+	&.style1 {
+		.ct-main-menu > li > a:before {
+			display: none;
+		}
+	}
+	&.style2 {
+		.ct-main-menu > li {
+			z-index: 1;
+			&:after {
+				content: '';
+				height: 34px;
+				width: 1px;
+				background: #d8d8d8;
+				position: absolute;
+				top: 50%;
+				@include transform(translate(0, -50%));
+				right: -17px;
+				z-index: -1;
+			}
+			&:last-child:after {
+				display: none;
+			}
+			> a:before {
+				height: 4px;
+			}
+		}
+	}
+	&.style3 {
+		.ct-main-menu > li {
+			> a:before {
+				display: block;
+				height: 3px;
+				width: 0;
+				background: $primary_color;
+				right: auto;
+				left: -14px;
+				bottom: auto;
+				margin-top: 17px;
+				top: 50%;
+			}
+			> a.ct-onepage-active,
+            &:hover > a,
+            &.current_page_item:not(.menu-item-type-custom) > a,
+            &.current-menu-item:not(.menu-item-type-custom) > a,
+            &.current-menu-parent > a,
+            &.current_page_ancestor:not(.menu-item-type-custom) > a,
+            &.current-menu-ancestor:not(.menu-item-type-custom) > a {
+            	&:before {
+            		width: 42px;
+            	}
+            }
+		}
+	}
+	&.style4 {
+		.ct-main-menu > li {
+			> a:before {
+				display: block;
+				background: $primary_color;
+				height: 4px;
+			}
+		}
+	}
+}
+.ct-header-menu-popup {
+	span {
+		color: #fff;
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		display: inline-block;
+		padding: 4px 0;
+		position: relative;
+		cursor: pointer;
+		&:before, &:after {
+			content: '';
+			width: 25px;
+			height: 2px;
+			background-color: $primary_color;
+			position: absolute;
+			@include transition(all .25s cubic-bezier(.645,.045,.355,1));
+		}
+		&:before {
+			top: 0;
+			left: 0;
+		}
+		&:after {
+			right: 0;
+			bottom: 0;
+		}
+		&:hover {
+			&:before, &:after {
+				width: 100%;
+			}
+		}
+	}
+}
